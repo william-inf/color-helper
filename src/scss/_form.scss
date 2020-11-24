@@ -1,0 +1,14 @@
+form {
+  label {
+    font-weight: 600;
+  }
+
+  &.form-horizontal {
+    display: flex;
+    flex-flow: row wrap;
+
+    .form-group {
+      margin-right: 1rem;
+    }
+  }
+}

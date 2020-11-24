@@ -1,0 +1,25 @@
+# OS
+.DS_STORE
+Thumbs.db
+
+# Editors
+.idea
+.chrome
+/*.log
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Dependencies
+/node_modules
+package-lock.json
+yarn-lock.json
+
+# Compiled files
+/dist
+/index.html
+/.nyc_output
+/coverage
+

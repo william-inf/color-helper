@@ -1,0 +1,19 @@
+<template>
+  <form class="form-horizontal" role="add_color">
+    <validatable-field 
+    placeholder="Name" 
+    value.bind="model.name" 
+    errors.bind="errors.name"
+    label="Name"
+    type="text">
+    </validatable-field>
+    <validatable-field 
+    placeholder="Hex Code" 
+    value.bind="model.hex" 
+    errors.bind="errors.hex"
+    label="Hex Code"
+    type="text">
+    </validatable-field>
+    <button type="submit" class="primary" click.trigger="addColor()">Add</button>
+  </form>
+</template>

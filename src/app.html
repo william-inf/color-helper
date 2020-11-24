@@ -1,0 +1,24 @@
+<template>
+  <require from="./app.scss"></require>
+  <require from="routes/forms/add-color"></require>
+  <require from="routes/components/color-panel"></require>
+  
+  <div class="main-container">
+    <header class="header">
+      <add-color color-list.bind="colorList">
+        Header
+      </add-color>
+    </header>
+    <main class="content">
+      Content
+      <section id="color-list" if.bind="colorList" repeat.for="color of colorList">
+        <article class="color">
+          <color-panel name.bind="color.name" hex.bind="color.hex"></color-panel>
+        </article>
+      </section>
+    </main>
+    <footer class="footer">
+      Footer
+    </footer>
+  </div>
+</template>
