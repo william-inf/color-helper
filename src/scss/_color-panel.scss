@@ -1,0 +1,18 @@
+.color-panel {
+    // background-color: $red;
+    width: 100%;
+
+    .title {
+
+    }
+
+    .color-boxes {
+        display: flex;
+        flex-flow: row nowrap;
+        width: 100%;
+
+        .color-box {
+            flex-grow: 1;
+        }
+    }
+}

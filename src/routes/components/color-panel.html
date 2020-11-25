@@ -1,12 +1,14 @@
 <template>
-  <div>${name}</div>
-  <div>
-    <span repeat.for="profile of colorProfile">
-      <span css="background-color: ${profile.hex}" style="height: 175px; width: 175px; display: inline-block;">${profile.hex} - ${profile.name}</span>
-    </span>
-  </div>
-  <div>
-    <button class="primary" click.trigger="addIteration()">Add</button>
-    <button class="primary" click.trigger="subtractIteration()">Minus</button>
+  <div class="color-panel">
+    <div class="title">${name}</div>
+    <div class="color-boxes">
+      <span repeat.for="profile of colorProfile">
+        <span class="col" css="background-color: ${profile.hex}" style="height: 175px; width: 175px; display: inline-block;">${profile.hex} - ${profile.name}</span>
+      </span>
+    </div>
+    <div>
+      <button class="primary" click.trigger="addIteration()">Add</button>
+      <button class="primary" click.trigger="subtractIteration()">Minus</button>
+    </div>
   </div>
 </template>

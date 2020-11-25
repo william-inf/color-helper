@@ -4,17 +4,16 @@
   <require from="routes/components/color-panel"></require>
   
   <div class="main-container">
-    <header class="header">
-      <add-color color-list.bind="colorList"></add-color>
+    <header class="header ${colorList.length === 0 ? 'full-size' : ''}">
+      ${length}
+      <add-color color-list.two-way="colorList"></add-color>
     </header>
-    <main class="content">
-      <section id="color-list" if.bind="colorList" repeat.for="color of colorList">
-        <article class="color">
-          <color-panel name.bind="color.name" hex.bind="color.hex"></color-panel>
-        </article>
+    <main class="content ${colorList.length > 0 ? 'full-size' : ''}">
+      <section if.bind="colorList" repeat.for="color of colorList">
+        <color-panel name.bind="color.name" hex.bind="color.hex"></color-panel>
       </section>
     </main>
-    <footer class="footer">
+    <footer class="footer ${colorList.length > 0 ? 'full-size' : ''}">
       Footer
     </footer>
   </div>

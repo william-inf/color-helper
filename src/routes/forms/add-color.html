@@ -1,23 +1,26 @@
 <template>
-  <form role="add_color">
-    <validatable-field 
-    placeholder="Name" 
-    value.bind="model.name" 
-    errors.bind="errors.name"
-    label="Get started with a name"
-    help-text="The name field will be the prefix for the CSS variable."
-    type="text">
-    </validatable-field>
-    <validatable-field 
-    placeholder="Hex Code" 
-    value.bind="model.hex" 
-    errors.bind="errors.hex"
-    label="What is the starter color?"
-    help-text="Shades will be generated of this value."
-    type="text">
-    </validatable-field>
-    <div>
-      <button type="submit" class="primary wide" click.trigger="addColor()">Add</button>
-    </div>
-  </form>
+  <div class="form-horizontal">
+    <form role="add_color">
+      <validatable-field 
+      placeholder="Name" 
+      value.bind="model.name" 
+      errors.bind="errors.name"
+      label="Get started with a name"
+      help-text="The name field will be the prefix for the CSS variable."
+      type="text">
+      </validatable-field>
+      <validatable-field 
+      placeholder="Hex Code" 
+      value.bind="model.hex" 
+      errors.bind="errors.hex"
+      label="... and a starter color?"
+      help-text="Shades will be generated of this value."
+      type="text">
+      </validatable-field>
+    </form>
+  </div>
+  <div>
+    <button type="submit" class="primary wide" click.trigger="addColor()">Add</button>
+  </div>
+  
 </template>

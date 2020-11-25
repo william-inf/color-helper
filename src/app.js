@@ -1,7 +1,8 @@
-
-
 export class App {
 
-  colorList = []
+  colorList = [{
+    hex: '#30a1c1',
+    name: 'blue'
+  }]
 
 }
