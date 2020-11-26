@@ -9,9 +9,25 @@
       <add-color color-list.two-way="colorList"></add-color>
     </header>
     <main class="content ${colorList.length > 0 ? 'full-size' : ''}">
-      <section if.bind="colorList" repeat.for="color of colorList">
-        <color-panel name.bind="color.name" hex.bind="color.hex"></color-panel>
-      </section>
+      <div class="row">
+        <div class="col">
+          <div class="panel">
+            <div class="color-panel" as-element="color-panel" name.bind="color.name" hex.bind="color.hex" if.bind="colorList" repeat.for="color of colorList"></div>
+          </div>
+          
+        </div>
+        <div class="col">
+          <div class="panel solid no-padding">
+            <nav class="panel-header">
+              <div class="opt active">Palette</div>
+              <div class="opt">Export</div>
+            </nav>
+            <div class="panel-body">
+              Here!
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer class="footer ${colorList.length > 0 ? 'full-size' : ''}">
       Footer

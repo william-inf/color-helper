@@ -1,11 +1,11 @@
 <template>
-  <div class="form-horizontal">
-    <form role="add_color">
+  <div class="">
+    <form role="add_color" class="form-horizontal">
       <validatable-field 
       placeholder="Name" 
       value.bind="model.name" 
       errors.bind="errors.name"
-      label="Get started with a name"
+      label=""
       help-text="The name field will be the prefix for the CSS variable."
       type="text">
       </validatable-field>
@@ -13,14 +13,15 @@
       placeholder="Hex Code" 
       value.bind="model.hex" 
       errors.bind="errors.hex"
-      label="... and a starter color?"
+      label=""
       help-text="Shades will be generated of this value."
       type="text">
       </validatable-field>
+      <div class="button-group right">
+        <button type="submit" class="primary" click.trigger="addColor()">Add</button>
+        <button class="secondary" click.trigger="resetColor()">Reset</button>
+      </div>
     </form>
-  </div>
-  <div>
-    <button type="submit" class="primary wide" click.trigger="addColor()">Add</button>
   </div>
   
 </template>

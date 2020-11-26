@@ -1,10 +1,9 @@
 <template>
   <div class="form-group">
       <label if.bind="label" class="${errors ? 'is-invalid' : ''}">${label}</label>
-      <input type="${type}" name="${name}" class="form-control ${errors ? 'is-invalid' : ''}" placeholder="${placeholder}" value.bind="value">
+      <input type="${type}" name="${name}" class="form-control ${errors ? 'is-invalid' : ''} ${value && !errors ? 'has-value' : ''}" placeholder="${placeholder}" value.bind="value">
       <div class="errors" if.bind="errors">
           <span class="text-danger" repeat.for="error of errors">${error}<br if.bind="!$last"></span>
       </div>
-      <div if.bind="helpText && !errors"><small>${helpText}</small></div>
   </div>
 </template>

@@ -34,6 +34,13 @@ export class AddColor {
     };
   }
 
+  resetColor() {
+    this.model = {
+      name: '',
+      hex: ''
+    }
+  }
+
   @computedFrom('triedOnce', 'name', 'hex')
   get errors() {
       if (!this.triedOnce) return {};

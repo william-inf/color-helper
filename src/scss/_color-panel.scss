@@ -1,18 +1,45 @@
 .color-panel {
-    // background-color: $red;
-    width: 100%;
 
-    .title {
-
+    &:not(first-child) {
+        margin-bottom: 1rem;
     }
 
+    .panel-header {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        .title {
+            margin-bottom: 1rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+    
+            small {
+                text-transform: uppercase;
+            }
+        }
+
+        .ico {
+            color: $black;
+
+            &:hover {
+                color: $red;
+                cursor: pointer;
+            }
+        }
+    }
+     
     .color-boxes {
         display: flex;
         flex-flow: row nowrap;
         width: 100%;
+        border: 2px solid $black;
+        overflow-y: scroll;
 
         .color-box {
             flex-grow: 1;
+            flex-basis: auto;
+            min-width: 50px;
         }
     }
 }
