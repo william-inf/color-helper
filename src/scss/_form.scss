@@ -1,55 +1,61 @@
-label {
-  display: block;
-  margin: 0 0 0.25rem;
-  font-weight: 600;
-}
+form {
 
-input:not([type="checkbox"]),
-textarea,
-select {
-  display: block;
-  height: 2rem;
-
-  border: 2px dashed $gray-600;
-  border-radius: 0;
-  background-color: rgb(0,0,0, 0.0);
-  color: $blue;
-  font-weight: 600;
-  font-size: 1rem;
+  label {
+    display: block;
+    margin: 0 0 0.25rem;
+    font-weight: 600;
+  }
   
-  &::placeholder {
-    color: $white;
+  input:not([type="checkbox"]),
+  textarea,
+  select {
+    box-sizing: border-box;
+    display: block;
+    height: 2rem;
+    width: 100%;
+
+    border: 2px solid $gray-600;
+    border-radius: 0;
+    background-color: rgb(0,0,0, 0.0);
+    color: $blue;
+    font-weight: 600;
+    font-size: 1rem;
+    
+    &::placeholder {
+      color: $gray-600;
+    }
+  
+    padding: 1rem 0.5rem;
+    outline: none;
+  
+    transition: border-color 200ms ease-in;
+  
+    &:focus {
+      border-color: $blue;
+    }
+  
+    &.is-invalid {
+      border-color: $red;
+    }
+  
+    &.has-value {
+      border-color: $blue;
+    }
   }
-
-  padding: 1rem 0.5rem;
-  margin: 0.25rem 0.5rem;
-  outline: none;
-
-  transition: border-color 200ms ease-in;
-
-  &:focus {
-    border-color: $blue;
+  
+  .form-group {
+    width: 100%;
+    margin-bottom: 1rem;
+  
+    .errors {
+      text-align: center;
+      color: $red;
+    }
   }
+  
+  // .form-horizontal {
+  //   display: flex;
+  //   flex-flow: row wrap;
+  // }
 
-  &.is-invalid {
-    border-color: $red;
-  }
-
-  &.has-value {
-    border-color: $blue;
-  }
-}
-
-.form-group {
-  margin-bottom: 1rem;
-
-  .errors {
-    text-align: center;
-    color: $red;
-  }
-}
-
-.form-horizontal {
-  display: flex;
-  flex-flow: row wrap;
 }

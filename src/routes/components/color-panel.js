@@ -1,13 +1,20 @@
-import {bindable,computedFrom} from 'aurelia-framework';
+import {inject,bindable,computedFrom} from 'aurelia-framework';
+import {EventAggregator} from 'aurelia-event-aggregator';
 import Color from 'color';
 import _ from 'lodash'
 
+
+@inject(EventAggregator)
 export class ColorPanel {
   @bindable name = null;
   @bindable hex = null;
   
   colorProfile = []
-  iterations = 3;
+  iterations = 5;
+
+  constructor(ea) {
+    this.ea = ea;
+  }
 
   bind() {
     this.generateColorProfile()
@@ -17,6 +24,7 @@ export class ColorPanel {
     this.colorProfile = [];
 
     let color = Color(this.hex);
+    
     let factor = 1.0 / this.iterations;
     let totalCount = (2 * this.iterations) - 1;
 
@@ -41,11 +49,32 @@ export class ColorPanel {
 
       totalCount -= 1;
     })
+
+    this.ea.publish('load-colors', {
+      colorProfile: this.colorProfile,
+      name: this.name,
+      hex: this.hex
+    });
   }
 
   @computedFrom('colorProfile')
   get first() {
     return _.first(this.colorProfile)
+  }
+
+  @computedFrom('colorProfile')
+  get last() {
+    return _.last(this.colorProfile)
+  }
+
+  @computedFrom('hex')
+  get rgb() {
+    return Color(this.hex).hex();
+  }
+
+  @computedFrom('hex')
+  get isDark() {
+    return (Color(this.hex).luminosity() <= 0.5)
   }
 
   addIteration() {

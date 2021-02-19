@@ -16,7 +16,9 @@ export class AddColor {
   constructor(validation) {
     this.validator = validation.generateValidator({
       name: ['mandatory'],
-      hex: 'mandatory'
+      hex: ['mandatory', {
+        validate: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/, message: 'not a valid hex color'
+      }]
     });
   }
 

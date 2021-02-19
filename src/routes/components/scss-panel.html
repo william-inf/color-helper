@@ -1,0 +1,12 @@
+<template>
+  <div repeat.for="colorObj of colorLists">
+    <div class="text-gray">
+      // ${colorObj.name} color profile
+    </div>
+    <div repeat.for="color of colorObj.colorProfile">
+      <span css="background-color: ${color.hex}" style="height: 15px; width: 15px; border: 2px solid black; display: inline-block; -webkit-user-select: none;"></span>
+      $${color.name}: ${color.hex};
+    </div>
+    <br />
+  </div>
+</template>

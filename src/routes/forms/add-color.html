@@ -1,5 +1,4 @@
 <template>
-  <div class="">
     <form role="add_color" class="form-horizontal">
       <validatable-field 
       placeholder="Name" 
@@ -17,11 +16,9 @@
       help-text="Shades will be generated of this value."
       type="text">
       </validatable-field>
-      <div class="button-group right">
+      <div class="button-group">
         <button type="submit" class="primary" click.trigger="addColor()">Add</button>
-        <button class="secondary" click.trigger="resetColor()">Reset</button>
+        <button class="secondary" click.trigger="resetColor()" style="margin-left: 0.5rem;">Clear</button>
       </div>
-    </form>
-  </div>
-  
+    </form>  
 </template>

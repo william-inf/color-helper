@@ -20,8 +20,8 @@ input[type="button"] {
   text-decoration: none;
   user-select: none;
   width: auto;
-  height: auto;
-  margin: 0 0 0.75rem 0;
+  // height: auto;
+  height: 36px;
 
   transition: background-color 150ms ease-in, color 150ms ease-in, border-color 150ms ease-in;
 
@@ -30,15 +30,33 @@ input[type="button"] {
   }
 
   &.primary {
-    color: $blue;
+    color: $white;
     border-color: $blue;
-    background-color: transparent;
+    background-color: $blue;
   }
 
   &.secondary {
+    color: $gray-600;
+    border-color: $gray-600;
+    background-color: transparent;
+  }
+
+  &.white {
+    color: $white;
+    border-color: $white;
+    background-color: transparent;
+  }
+
+  &.black {
     color: $gray-1000;
     border-color: $gray-1000;
     background-color: transparent;
+  }
+
+  &.sm {
+    padding: 0.25rem;
+    height: 26px;
+    line-height: 0.5;
   }
 }
 
@@ -58,14 +76,14 @@ input[type="button"]:focus {
 
   &.primary {
     color: $white;
-    border-color: $blue;
-    background-color: $blue;
+    border-color: darken($blue, 10%);
+    background-color: darken($blue, 10%);
   }
 
-  &.secondary {
+  &.secondary,&.white,&.black {
     color: $white;
-    border-color: $gray-1000;
-    background-color: $gray-1000;
+    border-color: $gray-800;
+    background-color: $gray-800;
   }
 }
 
@@ -75,5 +93,14 @@ input[type="button"]:focus {
 
   &.right {
     justify-content: flex-end;
+  }
+
+  &.wide {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  button {
+    width: 100%;
   }
 }

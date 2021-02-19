@@ -1,0 +1,92 @@
+.color-boxes {
+  $color-border-width: 0px;
+  $color-box-height: 350px;
+  $color-box-width: 450px;
+  $main-color-box-height: calc(#{$color-box-height} - (#{$color-border-width} * 2));
+  $main-color-box-width: $color-box-height;
+  $sub-color-box-width: calc((#{$color-box-width} - #{$main-color-box-width}) - (#{$color-border-width} * 2));
+
+  display: flex;
+  flex-flow: row wrap;
+  padding: 1rem;
+  justify-content: center;
+
+  .color-box {
+    display: flex;
+    flex-flow: row nowrap;
+    height: $color-box-height;
+    width: $color-box-width;
+    border: $color-border-width solid $gray-900;
+    margin: 1rem;
+
+    transition: box-shadow 0.25s ease-in-out;
+
+    &:hover {
+      box-shadow: 
+      0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+      0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+      0 12.5px 10px rgba(0, 0, 0, 0.06),
+      0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+      0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+      0 100px 80px rgba(0, 0, 0, 0.12);
+    }
+    
+    &.empty-box {
+      align-self: center;
+      border: 2px dashed $gray-900;
+      padding: 2rem;
+
+      &:hover {
+        border: 2px solid $gray-900;  
+      }
+    }
+
+    .main-color-box {
+      display: flex;
+      flex-flow: column nowrap;
+      height: $main-color-box-height;
+      width: $main-color-box-width;
+      background-color: $gray-600;
+      padding: 2rem;
+
+      &.lite {
+        color: $white;
+      }
+  
+      &.dark {
+        color: $gray-1000;
+      }
+
+      .content-box {
+        flex-grow: 1;
+        flex-basis: auto;
+
+        &.top-bar {
+          font-size: 1.2rem;
+          font-weight: 600;
+        }
+
+        &.footer {
+          display: flex;
+          flex-flow: column-reverse nowrap;
+        }
+      }
+    }
+
+    .sub-color-box {
+      display: flex;
+      flex-flow: column nowrap;
+      height: 100%;
+      width: $sub-color-box-width;
+      background-color: $gray-200;
+      border-left: $color-border-width solid $gray-900;
+      overflow-x: scroll;
+
+      .sub-color-box-color {
+        flex-grow: 1;
+        flex-basis: auto;
+        // min-height: 30px;
+      }
+    }
+  }
+}

@@ -1,6 +1,25 @@
 <template>
-    <nav class="panel-header">
-      <div class="title">$${name} <small css="color: ${hex}">${hex}</small></div>
+  <div class="main-color-box ${isDark ? 'lite' : 'dark'}" css="background-color: ${hex}">
+    <div class="content-box top-bar">
+      <div class="title heavy-text-">$${name}</div>
+    </div>
+    <div class="content-box">
+      
+    </div>
+    <div class="content-box footer">
+      <div>
+        <p><smal style="text-transform: uppercase;">${hex}</small></p>
+        <button class="white sm ${isDark ? 'white' : 'black'}" click.trigger="subtractIteration()">-</button>
+        <button class="white sm ${isDark ? 'white' : 'black'}" click.trigger="addIteration()">+</button>
+      </div>
+    </div>
+  </div>
+  <div class="sub-color-box">
+    <div class="sub-color-box-color" css="background-color: ${profile.hex}" repeat.for="profile of colorProfile"></div>
+  </div>
+
+    <!-- <div class="panel-title">
+      <div class="title">$${name} <small >${hex}</small></div>
       <div class="ico">
         <span>
           <svg width="1.2rem" height="1.2rem" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -8,13 +27,11 @@
           </svg>
         </span>
       </div>
-    </nav>
+    </div>
     
     <div class="color-boxes">
-        <div class="color-box" css="background-color: ${profile.hex}" repeat.for="profile of colorProfile" style="height: 75px;"></div>
-    </div>
+    </div> -->
     <!-- <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
-      <button class="secondary" click.trigger="subtractIteration()">-</button>
-      <button class="secondary" click.trigger="addIteration()">+</button>
+
     </div> -->
 </template>

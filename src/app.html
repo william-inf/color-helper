@@ -2,35 +2,43 @@
   <require from="./app.scss"></require>
   <require from="routes/forms/add-color"></require>
   <require from="routes/components/color-panel"></require>
+  <require from="routes/components/scss-panel"></require>
   
   <div class="main-container">
-    <header class="header ${colorList.length === 0 ? 'full-size' : ''}">
-      ${length}
-      <add-color color-list.two-way="colorList"></add-color>
+    <header class="header">
+      Color Palette
     </header>
-    <main class="content ${colorList.length > 0 ? 'full-size' : ''}">
-      <div class="row">
-        <div class="col">
-          <div class="panel">
-            <div class="color-panel" as-element="color-panel" name.bind="color.name" hex.bind="color.hex" if.bind="colorList" repeat.for="color of colorList"></div>
-          </div>
-          
+    <main class="content">
+      <div class="color-boxes">
+        <div 
+          class="color-box" 
+          as-element="color-panel" 
+          name.bind="color.name" 
+          hex.bind="color.hex" 
+          if.bind="colorList" 
+          repeat.for="color of colorList">
         </div>
-        <div class="col">
+        <div class="color-box empty-box">
+          <add-color color-list.two-way="colorList" class="full-width" style=""></add-color>
+        </div>
+      </div>
+
+        <div class="col right">
           <div class="panel solid no-padding">
             <nav class="panel-header">
-              <div class="opt active">Palette</div>
-              <div class="opt">Export</div>
+              <div class="opt ${opened === 'palette' ? 'active' : ''}" click.trigger="opened = 'palette'">Palette</div>
+              <div class="opt ${opened === 'export' ? 'active' : ''}" click.trigger="opened = 'export'">Export</div>
             </nav>
             <div class="panel-body">
-              Here!
+              <div id="palette">
+                <div>
+                  <scss-panel if.bind="colorList"></scss-panel>
+                  <br>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </main>
-    <footer class="footer ${colorList.length > 0 ? 'full-size' : ''}">
-      Footer
-    </footer>
   </div>
 </template>
