@@ -1,0 +1,10 @@
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 3px;
+
+    &.alert-info {
+        color: $white;
+        background-color: $blue;
+    }
+}

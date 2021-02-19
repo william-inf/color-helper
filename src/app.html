@@ -6,10 +6,16 @@
   
   <div class="main-container">
     <header class="header">
-      Color Palette
+      <div id="header-title">
+        <strong>Sass Color Palette</strong>&nbsp;Generator
+      </div>
+      <div><span class="pill">Version 0.0.1</span></div>
     </header>
     <main class="content">
       <div class="color-boxes">
+        <div class="color-box empty-box">
+          <add-color color-list.two-way="colorList" class="full-width" style=""></add-color>
+        </div>
         <div 
           class="color-box" 
           as-element="color-panel" 
@@ -17,9 +23,6 @@
           hex.bind="color.hex" 
           if.bind="colorList" 
           repeat.for="color of colorList">
-        </div>
-        <div class="color-box empty-box">
-          <add-color color-list.two-way="colorList" class="full-width" style=""></add-color>
         </div>
       </div>
 
@@ -40,5 +43,11 @@
           </div>
         </div>
     </main>
+    <footer class="footer">
+      <div class="footer-links">
+        2020 | 
+        <a href="https://github.com/william-inf/color-helper">GitHub</a>
+      </div>
+    </footer>
   </div>
 </template>
